@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // create carousel frame
     const container = document.querySelector('.container')
     const frame = document.createElement('div')
+    const slideIndicators = document.createElement('div')
+    slideIndicators.setAttribute('class', 'slide-indicator-container')
     frame.setAttribute('class', 'frame')
 
     // adding sliders to frame
@@ -22,12 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
       // put sliders in consecutive position
       imgContainer.style.left = `${index * 100}%`
       frame.appendChild(imgContainer)
+
+      const indicator = document.createElement('div')
+      indicator.setAttribute('class', 'indicator')
+      slideIndicators.appendChild(indicator)
     })
+    slideIndicators.firstChild.classList.add('active')
     container.appendChild(frame)
+    container.appendChild(slideIndicators)
     return container
   }
-  const createButton = (buttonName) => {
+  const createButton = (buttonName, className) => {
     const btn = document.createElement('button')
+    btn.setAttribute('class', `btn ${className}`)
     btn.innerText = buttonName
     return btn
   }
@@ -35,10 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
     allImages.forEach((image) => {
       image.style.transform = `translate(-${counter * 100}%)`
     })
+    const allIndicators = document.querySelectorAll('.indicator')
+    allIndicators.forEach((indicator, index) => {
+      index === counter
+        ? indicator.classList.add('active')
+        : indicator.classList.remove('active')
+    })
   }
   const container = createCarousel()
-  const prevBtn = createButton('PREV')
-  const nextBtn = createButton('NEXT')
+  const prevBtn = createButton('< PREV', 'prev-btn')
+  const nextBtn = createButton('NEXT >', 'next-btn')
   const allImages = document.querySelectorAll('img')
 
   prevBtn.addEventListener('click', () => {
@@ -52,6 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     counter = counter === allImages.length ? 0 : counter
     updateCarousel()
   })
-  container.appendChild(prevBtn)
-  container.appendChild(nextBtn)
+  container.querySelector('.frame').appendChild(prevBtn)
+  container.querySelector('.frame').appendChild(nextBtn)
 })

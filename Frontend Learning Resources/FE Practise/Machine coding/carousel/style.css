@@ -1,28 +1,59 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .btn {
+  position: absolute;
+  height: 50px;
+  width: 60px;
+  border-radius: 100%;
+  top: 40%;
+  font-size: 12px;
+}
+.prev-btn {
+  left: 3%;
+}
+.next-btn {
+  right: 3%;
 }
 
-.container .frame{
-    width: 500px;
-    height: 300px;
-    position: relative;
-    overflow: hidden;
+.container .frame {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
 }
 
 .frame .slider {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: 0.4s;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 0.4s;
+}
+.slide-indicator-container {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.slide-indicator-container .indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 100%;
+}
+.slide-indicator-container .indicator.active {
+  background-color: black;
 }

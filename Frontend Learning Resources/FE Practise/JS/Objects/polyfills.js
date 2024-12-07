@@ -69,3 +69,62 @@ Object.prototype.flatObject = function () {
 console.log(nestedObject.flatObject())
 
 console.log(obj.flatObject())
+
+const cars = {
+  num: 123,
+  str: 'abc',
+  bool: true,
+  undef: undefined,
+  nul: null,
+  obj: {
+    a: 456,
+    b: 'def',
+  },
+  arr: [10, 20, 30, 'z', 'y', 'z', true, undefined, null],
+}
+
+const JSONStringify = function (value) {
+  if (typeof value === null || typeof value === undefined) return 'null'
+  if (typeof value === 'number' || typeof value === 'boolean')
+    return String(value)
+  if (typeof value === 'string') return `"${value}"`
+  if (Array.isArray(value)) {
+    const arrayContent = value.map((ele) => JSONStringify(ele)).join(',')
+    return `[${arrayContent}]`
+  }
+  if (typeof value === 'object') {
+    const objectContent = Object.keys(value)
+      .map((key) => {
+        const val = JSONStringify(value[key])
+        return val !== undefined ? `"${key}":${val}` : undefined
+      })
+      .filter(Boolean)
+      .join(',')
+    return `{${objectContent}}`
+  }
+}  
+
+console.log(
+  JSONStringify([
+    'a',
+    'b',
+    [10, 20, 30, 40, 'xyz'],
+    'c',
+    { abc: 123, klp: 1233 },
+    1,
+    2,
+    4,
+  ])
+)
+console.log(
+  JSON.stringify([
+    'a',
+    'b',
+    [10, 20, 30, 40, 'xyz'],
+    'c',
+    { abc: 123, klp: 1233 },
+    1,
+    2,
+    4,
+  ])
+)
