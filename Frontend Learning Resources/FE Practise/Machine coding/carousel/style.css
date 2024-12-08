@@ -4,56 +4,63 @@
   box-sizing: border-box;
 }
 
-.container {
-  width: 100vw;
-  height: 100vh;
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-.container .btn {
-  position: absolute;
-  height: 50px;
-  width: 60px;
-  border-radius: 100%;
-  top: 40%;
-  font-size: 12px;
-}
-.prev-btn {
-  left: 3%;
-}
-.next-btn {
-  right: 3%;
+  background-color: rebeccapurple;
 }
 
-.container .frame {
-  width: 500px;
-  height: 300px;
+.carousel-container .frame {
+  width: 90%;
+  height: 80%;
+  min-height: 25rem;
   position: relative;
   overflow: hidden;
+  background-color: red;
 }
-
 .frame .slider {
   width: 100%;
   height: 100%;
   position: absolute;
   transition: 0.4s;
 }
+
 .slide-indicator-container {
-  width: 500px;
-  height: 50px;
+  width: 90%;
+  height: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-top: 1rem;
 }
+
 .slide-indicator-container .indicator {
-  width: 20px;
-  height: 20px;
+  width: 1.2rem;
+  height: 1.2rem;
   border: 2px solid black;
   border-radius: 100%;
 }
+
 .slide-indicator-container .indicator.active {
   background-color: black;
+}
+.carousel-container .btn {
+  position: absolute;
+  height: 3rem;
+  width: 4rem;
+  border-radius: 100%;
+  top: 40%;
+  font-size: 1rem;
+}
+.prev-btn {
+  left: 3%;
+}
+.next-btn {
+  right: 3%;
 }
