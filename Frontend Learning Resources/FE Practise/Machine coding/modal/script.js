@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBase.style.display = 'none'
     })
     modalContent.setAttribute('class', 'modal-content')
-    modalContent.innerHTML = modalBase.appendChild(closeBtn)
+    modalBase.appendChild(closeBtn)
     modalBase.appendChild(modalContent)
     modalBase.setAttribute('class', 'modal-base')
     container.appendChild(modalBase)
