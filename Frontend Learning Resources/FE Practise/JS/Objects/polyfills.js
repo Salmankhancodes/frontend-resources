@@ -49,7 +49,6 @@ const customFlatObject = function (obj, parentkey, result) {
   for (let i in obj) {
     // why function also getting listed here as own property of object
     // when added to prototype?
-    if (typeof obj[i] === 'function') return
     if (typeof obj[i] === 'object' && obj !== null) {
       customFlatObject(obj[i], parentkey + `${i}.`, result)
     } else {
@@ -102,7 +101,7 @@ const JSONStringify = function (value) {
       .join(',')
     return `{${objectContent}}`
   }
-}  
+}
 
 console.log(
   JSONStringify([
