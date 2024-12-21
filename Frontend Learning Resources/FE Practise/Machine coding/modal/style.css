@@ -7,6 +7,7 @@
 .container {
   position: relative;
 }
+
 .container .modal-base {
   width: 100%;
   height: 100%;
@@ -14,12 +15,14 @@
   position: fixed;
   display: none;
 }
+
 .container .modal-close-button {
   position: fixed;
   font-size: 70px;
   right: 7%;
   cursor: pointer;
 }
+
 .container .card {
   width: 300px;
   height: 400px;
@@ -27,10 +30,12 @@
   border: 1px solid grey;
   margin: 10px;
 }
+
 .container .card .image-card {
   width: 100%;
   height: 100%;
 }
+
 .container .products-container {
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +66,7 @@
   overflow: hidden;
   background-color: black;
 }
+
 .frame .slider {
   width: 100%;
   height: 100%;
@@ -88,6 +94,7 @@
 .slide-indicator-container .indicator.active {
   background-color: black;
 }
+
 .carousel-container .btn {
   position: absolute;
   height: 3rem;
@@ -96,9 +103,65 @@
   top: 40%;
   font-size: 1rem;
 }
+
 .prev-btn {
   left: 3%;
+  z-index: 1;
 }
+
 .next-btn {
   right: 3%;
+  z-index: 1;
+}
+
+.container .nav-bar {
+  background-color: blue;
+  width: 100%;
+  height: 4rem;
+  padding: 1rem;
+}
+
+.container .search-input {
+  width: 30rem;
+  height: 2rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  padding: 0 1rem;
+}
+
+.container .search-btn {
+  height: 2rem;
+  width: 6rem;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.container .sort-dropdown {
+  margin-left: 2rem;
+  width: 5rem;
+  height: 2rem;
+  font-size: 0.9rem;
+}
+
+.sort-dropdown option {
+  text-align: center;
+}
+
+.container .pagination-container {
+  height: 4rem;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-container button {
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.pagination-container button.active {
+  background-color: black;
+  color: white;
 }
