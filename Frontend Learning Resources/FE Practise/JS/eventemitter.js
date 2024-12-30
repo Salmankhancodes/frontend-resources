@@ -23,6 +23,13 @@ class EventEmitter {
       )
     }
   }
+  subscribeOnce = function (eventName, listener) {
+    const wrapper = (...args) => {
+      listener(...args)
+      this.off(eventName, wrapper)
+    }
+    this.on(eventName, wrapper)
+  }
 }
 
 const listener1 = (name, age) =>
@@ -32,7 +39,8 @@ const listener2 = (designation, age, company) =>
 
 const emitter = new EventEmitter()
 emitter.on('great', listener1)
-emitter.on('great', listener2)
+emitter.subscribeOnce('great', listener2)
 emitter.emit('great', 'Batman', '24', 'Earth')
-emitter.off('great', listener2)
+// emitter.off('great', listener2)
 emitter.emit('great', 'Super man', '24', 'Krypton')
+emitter.emit('great', 'spiderman', '26', 'earth')
